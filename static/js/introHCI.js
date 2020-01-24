@@ -11,19 +11,17 @@ $(document).ready(function() {
  */
 function initializePage() {
 	$("#testjs").click(function(e) {
-		$('.jumbotron h1').text("Javascript is connected");
+		$('.jumbotron h1').text("Javascript has taken control");
 		$("#testjs").text("Please wait...");
-		$(".jumbotron p").addClass("active");
+		$(".jumbotron p").toggleClass("active");
 	});
-
+	$("a.thumbnail").click(projectClick);
 }
 
-function projectClick(e) { 
-    // prevent the page from reloading      
+function projectClick(e) {      
     e.preventDefault();
     // In an event handler, $(this) refers to      
     // the object that triggered the event      
-    $(this).css("background-color", "#7fff00");
     var containingProject = $(this).closest(".project");
     var description = $(containingProject).find(".project-description");
     if (description.length == 0) {
